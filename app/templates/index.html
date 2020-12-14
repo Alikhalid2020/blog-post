@@ -1,0 +1,86 @@
+{%extends 'base.html'%}
+{%import "bootstrap/wtf.html" as wtf%}
+{%block content%}
+<div id="welcome" class="jumbotron">
+  <h1>{{message}}</h1>
+  <p>Our community talks about mental health with compassion and without judgment.</p>
+  {%for quo in quote%}
+    <p>{{quo.quote}}</p>
+    <i>~~{{quo.author}}~~</i>
+  {%endfor%}
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="container">
+        <h1 id="h1" style="text-align:center">Let's talk about Mental Health!</h1>
+        <img id="health" src="../static/whatisblog.png" alt="Mental health question">
+        <h3>What do you really mean when you say “I’m fine”?</h3>
+        <p>I’m not currently in therapy, but I think if I was, a therapist would help me work through my dangerous habit of over-saying “I’m fine.” Sure, it’s an OK response in the checkout line of a grocery store. It’s also valid in large settings or groups where we don’t feel comfortable letting our walls down. But I tend slather it all over one-on-one conversations with people I care about, as well as during doctor’s appointments where I’m the direct opposite of decent.</p>
+        <h4>When I say "I'm fine", I tend to mean:</h4>
+        <ul>
+          <li>I'm not doing well.</li>
+          <li>I'm numb.</li>
+          <li>My life is not what I want it to be but I'm still here.</li>
+        </ul>
+        <p>What about you? If you’re comfortable, feel free to use the comments section of this post to say how you truly are and let it be a small step in the right direction of healing.</p>
+
+
+        <br>
+        <hr class="bg-info">
+        <h1>Comments....</h1>
+        <div class="container">
+          <div class="comments">
+            {%for comment in commento%}
+            <div class="comments card">
+              <div class="card-header">
+
+                <p>{{comment.username}} commented on {{comment.posted}}</p>
+              </div>
+              <div class="card-body">
+                  <p>{{comment.comment}}</p>
+              </div>
+              <div class="card-footer">
+
+                {%if current_user.is_authenticated%}
+                <a href="" data-method="delete" data-confirm="Are you sure?">admin online</a>
+                {%endif%}
+              </div>
+            </div>
+
+            {%endfor%}
+
+          </div>
+          <div class="row">
+
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-8">
+              <div class="">
+                <h3>Add a comment</h3>
+                <i class="alert alert-info"><b>By commenting you've automatically subscribed</b></i>
+                <br>
+                {{wtf.quick_form(comments)}}
+
+              </div>
+            </div>
+            <div class="col-md-2">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{%endblock%}
+
+
+
+  
+
+  
+  
+  
