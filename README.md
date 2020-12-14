@@ -22,6 +22,6 @@ To fix a bug or enhance an existing module, follow these steps:
 # Technologies used:
  Python3
 # Author
-KHALID ALI GOSO
+KHALID ALI GOSOR
 # Licence
 MIT
